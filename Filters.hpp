@@ -44,7 +44,7 @@ int getGaussianConvolution(Mat &image, int x, int y, vector< vector<double> > gK
 
   for (int i = -halfSize; i <= halfSize; i++) {
     for (int j = -halfSize; j <= halfSize; j++) {
-      value += gKernel[i+halfSize][j+halfSize] * image.at<uchar>(x + i, y + j);
+      value += gKernel[i+halfSize][j+halfSize] * (double)image.at<uchar>(x + i, y + j);
     }
   }
 
