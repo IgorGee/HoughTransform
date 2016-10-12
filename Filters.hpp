@@ -3,6 +3,9 @@
 
 #include <cmath>
 #include <iostream>
+#include <vector>
+
+using namespace std;
 
 double getGaussianValue(int x, int y, double sigma) {
   const double twoSigmaSquared = 2.0 * sigma * sigma;
@@ -12,16 +15,14 @@ double getGaussianValue(int x, int y, double sigma) {
   return exp(exponent)/twoPiSigmaSquared;
 }
 
-double** createGaussian(int size, double sigma) {
+vector< vector<double> > createGaussian(int size, double sigma) {
   int halfSize = size/2;
   double sum = 0;
 
-  double** kernel = new double*[size];
+  vector< vector<double> > kernel(size, vector<double>(size));
 
   // Fill up kernel with Gaussian formula
   for (int i = -halfSize; i <= halfSize; i++) {
-    kernel[i+halfSize] = new double[size];
-
     for (int j = -halfSize; j <= halfSize; j++) {
       double value = getGaussianValue(i, j, sigma);
       kernel[i+halfSize][j+halfSize] = value;
