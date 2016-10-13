@@ -53,11 +53,20 @@ void applyLoG(Mat &src, Mat &dest, vector< vector<double> > logKernel) {
   int margin = logKernel.size()/2;
   for (int i = margin; i < src.rows - margin; i++) {
     for (int j = margin; j < src.cols - margin; j++) {
-      /* if (src.at<uchar>(i, j) > 140) src.at<uchar>(i,j) = 255; */
-      /* else src.at<uchar>(i,j) = 0; */
 
       int intensity = getLoGConvolution(src, i, j, logKernel);
       dest.at<uchar>(i, j) = intensity;
+    }
+  }
+}
+
+void applyBinary(Mat &src, Mat &dest, int threshold) {
+  dest.create(src.size(), src.type());
+
+  for (int i = 0; i < src.rows; i++) {
+    for (int j = 0; j < src.cols; j++) {
+      if (src.at<uchar>(i, j) > threshold) dest.at<uchar>(i,j) = 255;
+      else dest.at<uchar>(i,j) = 0;
     }
   }
 }

@@ -15,6 +15,14 @@ bool argsH1Check(int argc) {
   return true;
 }
 
+bool argsH2Check(int argc) {
+  if (argc != 4) {
+    cout << "usage: ./h2 <input gray-level image> <input gray-level threshold> <output binary image>" << endl;
+    return false;
+  }
+  return true;
+}
+
 bool imageValidityCheck(Mat &image) {
   if (!image.data) {
     cout << "No image data " << endl;
