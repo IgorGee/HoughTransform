@@ -1,4 +1,5 @@
 SET("OpenCV_DIR" "~/opencv-3.1.0/build")
+SET(CMAKE_CXX_STANDARD 11)
 
 cmake_minimum_required(VERSION 2.8)
 project(HW3)
