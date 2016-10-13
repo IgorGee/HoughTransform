@@ -8,8 +8,8 @@ using namespace std;
 using namespace cv;
 
 bool argsH1Check(int argc) {
-  if (argc != 2) {
-    cout << "usage: ./DisplayImage <Image_Path>" << endl;
+  if (argc != 3) {
+    cout << "usage: ./h1 <input gray-level image> <output gray-level image>" << endl;
     return false;
   }
   return true;
