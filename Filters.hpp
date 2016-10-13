@@ -48,14 +48,13 @@ int getLoGConvolution(Mat &image, int x, int y, vector< vector<double> > logKern
 }
 
 void applyLoG(Mat &src, Mat &dest, vector< vector<double> > logKernel) {
-  dest.create(src.size(), src.type());
+  dest.create(src.size(), CV_8S);
 
   int margin = logKernel.size()/2;
   for (int i = margin; i < src.rows - margin; i++) {
     for (int j = margin; j < src.cols - margin; j++) {
-
       int intensity = getLoGConvolution(src, i, j, logKernel);
-      dest.at<uchar>(i, j) = intensity;
+      dest.at<char>(i, j) = intensity;
     }
   }
 }
