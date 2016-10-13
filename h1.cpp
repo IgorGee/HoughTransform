@@ -29,5 +29,8 @@ int main(int argc, char *argv[]) {
 
   waitKey(0);
 
+  vector<int> params = { CV_IMWRITE_PXM_BINARY };
+  imwrite(argv[2], logImage, params);
+
   return 0;
 }
