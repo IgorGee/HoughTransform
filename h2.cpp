@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
   int threshold = atoi(argv[2]);
 
   Mat binaryImage;
-  applyBinary(image, binaryImage, 140);
+  applyBinary(image, binaryImage, threshold);
 
   namedWindow("Original Image", WINDOW_AUTOSIZE);
   namedWindow("Binary Image", WINDOW_AUTOSIZE);
