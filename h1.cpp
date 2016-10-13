@@ -9,28 +9,23 @@ using namespace std;
 
 
 int main(int argc, char *argv[]) {
-  const int GSIZE = 7;
-  const double GSIGMA = 3;
-  vector< vector<double> > gKernel = createGaussian(GSIZE, GSIGMA);
+  const int LOGSIZE = 7;
+  const double LOGSIGMA = 1;
+  vector< vector<double> > logKernel = createLoG(LOGSIZE, LOGSIGMA);
 
   if (!argsH1Check(argc)) return -1;
   Mat image = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
   if (!imageValidityCheck(image)) return -1;
-  Mat blurImage;
+  Mat logImage;
 
   CV_Assert(image.depth() == CV_8U);
-  applyGaussian(image, blurImage, gKernel);
-
-  Mat realGaussianImage;
-  GaussianBlur(image, realGaussianImage, Size(7, 7), 3);
+  applyLoG(image, logImage, logKernel);
 
   namedWindow("Original Image", WINDOW_AUTOSIZE);
-  namedWindow("Blur Image", WINDOW_AUTOSIZE);
-  namedWindow("Real Gaussian Image", WINDOW_AUTOSIZE);
+  namedWindow("LoG Image", WINDOW_AUTOSIZE);
 
   imshow("Original Image", image);
-  imshow("Blur Image", blurImage);
-  imshow("Real Gaussian Image", realGaussianImage);
+  imshow("LoG Image", logImage);
 
   waitKey(0);
 
