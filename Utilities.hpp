@@ -23,6 +23,14 @@ bool argsH2Check(int argc) {
   return true;
 }
 
+bool argsH3Check(int argc) {
+  if (argc != 4) {
+    cout << "usage: ./h3 <input binary edge image> <output gray-level Hough image> <output Hough-voting-array>" << endl;
+    return false;
+  }
+  return true;
+}
+
 bool imageValidityCheck(Mat &image) {
   if (!image.data) {
     cout << "No image data " << endl;

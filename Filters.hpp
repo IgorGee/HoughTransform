@@ -70,4 +70,11 @@ void applyBinary(Mat &src, Mat &dest, int threshold) {
   }
 }
 
+double getRho(int x, int y, double theta, double increments) {
+  theta *= increments;
+  double rad = theta * M_PI/180;
+  double rho = x * cos(rad) + y * sin(rad);
+  return rho;
+}
+
 #endif
