@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     for (int j = 0; j < image.cols; j++) {
       if (image.at<uchar>(i, j)) {
         for (int t = 0; t < houghCols; t++) {
-          double rho = getRho(i, j, t, thetaIncrements);
+          double rho = getRho(j, i, t, thetaIncrements);
           int val = A[rho + maxRho][t]++;
           if (val > maxVote) maxVote = val;
         }
