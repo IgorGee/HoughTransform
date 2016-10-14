@@ -77,4 +77,11 @@ double getRho(int x, int y, double theta, double increments) {
   return rho;
 }
 
+int getYFromRhoTheta(Mat &src, int rho, double theta, int x) {
+  cout << "rho: " << rho << " theta: " << theta << endl;
+  double rad = theta * M_PI/180;
+  int y = (rho - x * cos(rad))/sin(rad);
+  return y;
+}
+
 #endif

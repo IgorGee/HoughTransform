@@ -2,6 +2,9 @@
 #define UTILITIES_H
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 #include <opencv2/opencv.hpp>
 
 using namespace std;
@@ -31,12 +34,39 @@ bool argsH3Check(int argc) {
   return true;
 }
 
+bool argsH4Check(int argc) {
+  if (argc != 5) {
+    cout << "usage: ./h4 <input original gray-level image> <input Hough-voting-array> <input Hough threshold value> <output gray-level line image>" << endl;
+    return false;
+  }
+  return true;
+}
+
 bool imageValidityCheck(Mat &image) {
   if (!image.data) {
     cout << "No image data " << endl;
     return false;
   }
   return true;
+}
+
+vector< vector<int> > getHoughArray(ifstream &houghArray) {
+  vector< vector<int> > A;
+
+  string line;
+  while (getline(houghArray, line)) {
+    vector<int> temp;
+
+    stringstream ss(line);
+    int val;
+    while (ss >> val) {
+      temp.push_back(val);
+    }
+
+    A.push_back(temp);
+  }
+
+  return A;
 }
 
 #endif
