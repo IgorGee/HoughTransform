@@ -38,24 +38,6 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  /* Mat edges = imread(argv[5], CV_LOAD_IMAGE_GRAYSCALE); */
-
-  /* // test how opencv does */
-  /* vector<Vec2f> lines; */
-  /* HoughLines(edges, lines, 1, CV_PI/180, 100); */
-  /* for (int i = 0; i < lines.size(); i++) { */
-  /*   float rho = lines[i][0], theta = lines[i][1]; */
-  /*   cout << "rho: " << rho << endl; */
-  /*   Point pt1, pt2; */
-  /*   double a = cos(theta), b = sin(theta); */
-  /*   double x0 = a*rho, y0 = b*rho; */
-  /*   pt1.x = cvRound(x0 + 1000*(-b)); */
-  /*   pt1.y = cvRound(y0 + 1000*(a)); */
-  /*   pt2.x = cvRound(x0 - 1000*(-b)); */
-  /*   pt2.y = cvRound(y0 - 1000*(a)); */
-  /*   line(image, pt1, pt2, 0); */
-  /* } */
-
   namedWindow("Original Image", WINDOW_AUTOSIZE);
   /* namedWindow("Edge Image", WINDOW_AUTOSIZE); */
 
