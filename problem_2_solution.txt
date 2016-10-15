@@ -1,0 +1,5 @@
+For any given value x and y, you are left with an equation of theta that yields a value for rho.
+This equation is a sinusoid.
+
+The amplitude is directly related to the (x, y) point. The phase of the sinusoid is unaffected.
+The period of the sinusoid does not vary with the image point.
